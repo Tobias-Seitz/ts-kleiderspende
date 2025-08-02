@@ -13,7 +13,7 @@
     <p><strong>Übergabeart:</strong> {{ data.type.label }}</p>
 
     <!-- Abholadresse (nur bei Abholung durch Sammelfahrzeug) -->
-    <div v-if="data.type.value === 'sammelfahrzeug'">
+    <div v-if="data.type.value === 'abholung'">
       <div class="items-center mt-1">
         <p><strong>Abholadresse</strong></p>
       </div>
@@ -34,7 +34,7 @@
 </template>
 
 <script setup>
-import { useFormStore } from '../formDataStore'
+import { useFormStore } from '../stores/formDataStore'
 
 //Pinia Formstore
 const formStore = useFormStore()

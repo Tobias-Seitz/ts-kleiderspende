@@ -5,21 +5,21 @@
     <CustomDropdown v-model="form.type" :options="typeOptions" :error="formErrors.typeError" label="Übergabeart"/>
 
     <!-- Abholadresse (nur bei Abholung durch Sammelfahrzeug) -->
-    <div v-if="form.type.value === 'sammelfahrzeug'">
+    <div v-if="form.type.value === 'abholung'">
     <div class="items-center mt-1">
         <p class="font-semibold">Abholadresse</p>
     </div>
     <div class="flex flex-col sm:flex-row gap-1 items-start sm:items-start sm:gap-2 mt-1">
-      <FormTextField v-model="form.street" label="Straße" :error="formErrors.streetError" class="w-full"/>
-      <FormTextField v-model="form.number" label="Nr." :error="formErrors.numberError" class="w-full"/>
+      <CustomTextField v-model="form.street" label="Straße" :error="formErrors.streetError" class="w-full"/>
+      <CustomTextField v-model="form.number" label="Nr." :error="formErrors.numberError" class="w-full"/>
     </div>
     <div class="flex flex-col sm:flex-row gap-1 items-start sm:items-start sm:gap-2 mt-1">
-      <FormTextField v-model="form.postalcode" label="PLZ" :error="formErrors.plzError" class="w-full"/>
-      <FormTextField v-model="form.city" label="Ort" :error="formErrors.cityError" class="w-full"/>
+      <CustomTextField v-model="form.postalcode" label="PLZ" :error="formErrors.plzError" class="w-full"/>
+      <CustomTextField v-model="form.city" label="Ort" :error="formErrors.cityError" class="w-full"/>
     </div>
     </div>
 
-    <FormTextField v-model="form.typeOfClothing" label="Art der Kleidung" :error="formErrors.typeOfClothingError"/>
+    <CustomTextField v-model="form.typeOfClothing" label="Art der Kleidung" :error="formErrors.typeOfClothingError"/>
 
     <CustomDropdown v-model="form.region" :options="regionOptions" :error="formErrors.regionError" label="Krisengebiet"/>
 
@@ -30,9 +30,9 @@
 <script setup>
 import { ref } from 'vue';
 import CustomDropdown from './CustomDropdown.vue';
-import FormTextField from './CustomTextField.vue';
+import CustomTextField from './CustomTextField.vue';
 import CustomButton from './CustomButton.vue';
-import { useFormStore } from '../formDataStore'
+import { useFormStore } from '../stores/formDataStore'
 import { useRouter } from 'vue-router'
 
 //Pinia Formstore und Router
@@ -65,7 +65,7 @@ const formErrors = ref({
 //Optionen für Übergabeart-Dropdown
 const typeOptions = [
   { value: 'geschaeftsstelle', label: 'Übergabe an der Geschäftsstelle' },
-  { value: 'sammelfahrzeug', label: 'Abholung' },
+  { value: 'abholung', label: 'Abholung' },
 ]
 
 //Optionen für Krisenregion-Dropdown
@@ -130,7 +130,7 @@ function submitForm() {
       formErrors.value.plzError = "Die PLZ darf nicht leer sein.";
       numOfErrors++;
     } else {
-      //Prüfem ob PLZ gültig ist
+      //Prüfen ob PLZ gültig ist
       if (!/^\d{5}$/.test(form.value.postalcode)) {
           formErrors.value.plzError = "Die angegebene Postleitzahl ist nicht gültig.";
           numOfErrors++;

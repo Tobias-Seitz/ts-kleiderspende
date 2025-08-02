@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import { useFormStore } from './formDataStore'
+import { useFormStore } from './stores/formDataStore'
 import { pinia } from './main'
 import Home from './views/Home.vue';
 import Register from './views/Register.vue';
