@@ -193,7 +193,6 @@ function submitForm() {
     form.value.postalcode = escapeInput(form.value.postalcode);
     form.value.typeOfClothing = escapeInput(form.value.typeOfClothing);
 
-
     //Aktuelles Datum und Uhrzeit in Formulardaten speichern
     const now = new Date();
     form.value.date = now.toLocaleDateString();
