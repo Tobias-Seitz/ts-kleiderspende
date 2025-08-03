@@ -47,6 +47,7 @@ const form = ref({
   city: '',
   postalcode: '',
   typeOfClothing: '',
+  region: '',
   time: '',
   date: '',
 });
@@ -99,7 +100,7 @@ function submitForm() {
   let numOfErrors = 0;
 
   //Wenn Abholart Sammelfahrzeug
-  if (form.value.type.value === 'sammelfahrzeug') {
+  if (form.value.type.value === 'abholung') {
 
     //Prüfen ob Straße eingeben wurde
     if(!form.value.street || form.value.street.trim() === '') {
