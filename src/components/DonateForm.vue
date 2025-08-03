@@ -136,7 +136,8 @@ function submitForm() {
           numOfErrors++;
       } else {
         //Prüfen ob PLZ im Einzugsgebiet liegt
-        if (form.value.postalcode.slice(0, 2) !== '97') { //die plz muss mit 97 beginnen um eine abholung druch ein sammelfahrzeug zu ermöglichen
+        if (form.value.postalcode.slice(0, 2) !== '97') { 
+          //die plz muss mit 97 beginnen um eine abholung druch ein sammelfahrzeug zu ermöglichen
           formErrors.value.plzError = "Die angegebene Postleitzahl liegt nicht im Einzugsgebiet (97xxx).";
           numOfErrors++;
         } else {

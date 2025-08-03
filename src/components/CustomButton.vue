@@ -33,7 +33,8 @@ const variantClasses = computed(() => {
     case 'danger':
       return 'bg-red-500 text-white hover:bg-red-600'
     default:
-      return 'bg-gray-800 text-white hover:bg-blue-100 hover:text-blue-700' //die primary-Variante als Standard-Option verwenden, wenn nichts oder etwas falsches angegeben wurde
+      return 'bg-gray-800 text-white hover:bg-blue-100 hover:text-blue-700' 
+      //die primary-Variante als Standard-Option verwenden, wenn nichts oder etwas falsches angegeben wurde
   }
 })
 </script>

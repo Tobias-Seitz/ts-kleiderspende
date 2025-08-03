@@ -11,7 +11,8 @@
         @input="$emit('update:modelValue', $event.target.value)"
         :disabled="disabled"
         :class="[
-        'text-gray-800 w-full px-4 py-2 rounded-2xl bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-700  hover:bg-blue-100 hover:text-blue-700',
+        'text-gray-800 w-full px-4 py-2 rounded-2xl bg-white border border-gray-300'
+        + 'focus:outline-none focus:ring-2 focus:ring-blue-700  hover:bg-blue-100 hover:text-blue-700',
         disabled ? 'bg-gray-100 cursor-not-allowed' : 'bg-white',
         error ? 'border-red-500' : 'border-gray-300'
         ]"

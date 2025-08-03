@@ -25,7 +25,8 @@ const props = defineProps({
 const variantClasses = computed(() => {
   switch (props.variant) {
     case 'standard':
-      return 'font-medium px-8 py-4 mb-5 ml-5 mr-5 rounded-4xl text-lg sm:text-2xl bg-gray-800 hover:bg-blue-100 hover:text-blue-700 text-white'
+      return 'font-medium px-8 py-4 mb-5 ml-5 mr-5 rounded-4xl text-lg sm:text-2xl'
+      + 'bg-gray-800 hover:bg-blue-100 hover:text-blue-700 text-white'
     case 'header':
       return 'font-medium text-lg block px-4 py-2 rounded-4xl hover:bg-blue-100 hover:text-blue-700'
     case 'footer':
@@ -33,7 +34,9 @@ const variantClasses = computed(() => {
     case 'unstyled':
         return '';
     default:
-      return 'font-medium px-8 py-4 mb-5 ml-5 mr-5 rounded-4xl text-lg sm:text-2xl bg-gray-800 hover:bg-blue-100 hover:text-blue-700 text-white' //die primary-Variante als Standard-Option verwenden, wenn nichts oder etwas falsches angegeben wurde
+      return 'font-medium px-8 py-4 mb-5 ml-5 mr-5 rounded-4xl text-lg sm:text-2xl'
+      + 'bg-gray-800 hover:bg-blue-100 hover:text-blue-700 text-white' 
+      //die primary-Variante als Standard-Option verwenden, wenn nichts oder etwas falsches angegeben wurde
   }
 })
 
